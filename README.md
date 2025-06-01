@@ -39,7 +39,5 @@ To run this project locally:
 1. Clone this repository:
    ```bash
    git clone https://github.com/praveenh001/portfolio.git
-1. Clone this repository:
-   ```bash
-   cd your-repo-name
-   start index.html
+2. run locally:
+   use live server extinstion to run it locally
