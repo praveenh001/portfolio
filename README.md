@@ -15,7 +15,7 @@ Welcome to my personal portfolio website! This project showcases my work, skills
 
 ## 🌐 Live Preview
 
-You can preview the project here: **[Coming Soon / Add GitHub Pages or Vercel/Netlify Link]**
+You can preview the project here: **[(https://portfoliopraveenh.netlify.app/)]**
 
 ## 📸 Screenshots
 ![Screenshot 2025-06-01 135024](https://github.com/user-attachments/assets/a1277ea5-0b57-4b41-a36b-01d57fd03062)
