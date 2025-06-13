@@ -463,24 +463,26 @@
     .contact-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
+      gap: 2rem;
+      align-items: stretch;
     }
 
     .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 1.25rem;
     }
 
     .contact-card {
       display: flex;
       align-items: flex-start;
-      gap: 1.25rem;
+      gap: 1rem;
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(10px);
       padding: 1.5rem;
       border-radius: 15px;
       transition: all 0.3s ease;
+      flex: 1;
     }
 
     .contact-card:hover {
@@ -489,24 +491,26 @@
     }
 
     .contact-icon {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       background: rgba(255,255,255,0.2);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
     .contact-details h3 {
       margin-bottom: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
+      font-weight: 600;
     }
 
     .contact-details a, .contact-details p {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.95rem;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      word-break: break-word;
     }
 
     .contact-details a:hover {
@@ -516,13 +520,16 @@
 
     .contact-form {
       background: white;
-      padding: 1.75rem;
+      padding: 2rem;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .form-group {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .form-label {
@@ -550,7 +557,7 @@
     }
 
     textarea.form-control {
-      min-height: 140px;
+      min-height: 120px;
       resize: vertical;
     }
 
@@ -558,13 +565,13 @@
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
       border: none;
-      width: 100%;
       padding: 0.9rem;
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
       font-size: 0.95rem;
+      margin-top: 1rem;
     }
 
     .submit-btn:hover {
@@ -714,6 +721,10 @@
       .contact-container {
         grid-template-columns: 1fr;
       }
+
+      .contact-form {
+        margin-top: 2rem;
+      }
     }
 
     @media (max-width: 768px) {
@@ -765,7 +776,7 @@
       }
       
       .contact-info {
-        grid-template-columns: 1fr;
+        gap: 1rem;
       }
     }
 
@@ -811,6 +822,14 @@
       
       .project-link {
         justify-content: center;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.25rem;
       }
     }
   </style>
@@ -953,7 +972,6 @@
         <div class="project-info">
           <h3 class="project-title">Home Surveillance Face Recognition</h3>
           <p class="project-description">An intelligent security system that identifies known/unknown faces and sends real-time alerts to homeowners with 98% accuracy.</p>
-          <div class="project喧
           <div class="project-tags">
             <span class="project-tag">Python</span>
             <span class="project-tag">OpenCV</span>
@@ -1025,8 +1043,8 @@
     <h2 class="section-title animate">Get In Touch</h2>
     
     <div class="contact-container">
-      <div class="contact-info">
-        <div class="contact-card animate delay-1">
+      <div class="contact-info animate delay-1">
+        <div class="contact-card">
           <div class="contact-icon">
             <i class="fas fa-envelope"></i>
           </div>
@@ -1036,7 +1054,7 @@
           </div>
         </div>
         
-        <div class="contact-card animate delay-2">
+        <div class="contact-card">
           <div class="contact-icon">
             <i class="fas fa-phone-alt"></i>
           </div>
@@ -1046,7 +1064,7 @@
           </div>
         </div>
         
-        <div class="contact-card animate delay-3">
+        <div class="contact-card">
           <div class="contact-icon">
             <i class="fas fa-map-marker-alt"></i>
           </div>
@@ -1057,25 +1075,23 @@
         </div>
       </div>
       
-      <div class="contact-form animate delay-4">
+      <div class="contact-form animate delay-2">
         <form id="contactForm">
           <div class="form-group">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
           </div>
           <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
           </div>
           <div class="form-group">
-            <label for="subject" class="form-label">Subject</label>
-            <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+            <label for="message" class="form-label">Your Message</label>
+            <textarea id="message" class="form-control" placeholder="Enter your message" required></textarea>
           </div>
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Send Message</button>
+          <button type="submit" class="submit-btn">
+            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+          </button>
         </form>
       </div>
     </div>
@@ -1198,14 +1214,19 @@
       e.preventDefault();
       
       // Get form values
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
       
+      // Basic validation
+      if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
       // Create WhatsApp message
       const phoneNumber = '+917483551673';
-      const whatsappMessage = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+      const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
       const encodedMessage = encodeURIComponent(whatsappMessage);
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       
