@@ -462,7 +462,7 @@
 
     .contact-container {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 2.5rem;
     }
 
@@ -710,6 +710,10 @@
         max-width: 500px;
         margin: 0 auto;
       }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
@@ -892,8 +896,6 @@
           </div>
         </div>
       </div>
-      
-      
     </div>
   </div>
 </section>
@@ -904,7 +906,6 @@
     <h2 class="section-title animate">My Projects</h2>
     
     <div class="projects-grid">
-      
       <!-- Project 2 -->
       <div class="project-card animate delay-2">
         <div class="project-image">
@@ -952,6 +953,7 @@
         <div class="project-info">
           <h3 class="project-title">Home Surveillance Face Recognition</h3>
           <p class="project-description">An intelligent security system that identifies known/unknown faces and sends real-time alerts to homeowners with 98% accuracy.</p>
+          <div class="project喧
           <div class="project-tags">
             <span class="project-tag">Python</span>
             <span class="project-tag">OpenCV</span>
@@ -1055,7 +1057,27 @@
         </div>
       </div>
       
-      
+      <div class="contact-form animate delay-4">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -1085,8 +1107,6 @@
         </ul>
       </div>
       
-      
-      
       <div class="footer-column">
         <h3>Resources</h3>
         <ul class="footer-links">
@@ -1099,7 +1119,7 @@
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2025 Praveen H. All rights reserved.</p>
+      <p>© 2025 Praveen H. All rights reserved.</p>
     </div>
   </div>
 </footer>
@@ -1183,11 +1203,17 @@
       const subject = document.getElementById('subject').value;
       const message = document.getElementById('message').value;
       
-      // Here you would typically send the form data to a server
-      // For demo purposes, we'll just log it and show an alert
-      console.log({ name, email, subject, message });
+      // Create WhatsApp message
+      const phoneNumber = '+917483551673';
+      const whatsappMessage = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       
-      alert('Thank you for your message, ' + name + '! I will get back to you soon.');
+      // Open WhatsApp link
+      window.open(whatsappUrl, '_blank');
+      
+      // Show confirmation
+      alert('Thank you for your message, ' + name + '! It has been sent via WhatsApp.');
       contactForm.reset();
     });
   }
